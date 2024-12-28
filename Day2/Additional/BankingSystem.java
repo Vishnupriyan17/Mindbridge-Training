@@ -15,10 +15,6 @@ class Account{
         currentBalance = 0.0;
         details = new ArrayList<>();
     }
-    Account(long accountNumber)
-    {
-        this.accountNumber = accountNumber;
-    }
     public void checkAccount(Account account)
     {
         System.out.println("your account number is: "+accountNumber+"\n"+"your account balance is: "+currentBalance);
