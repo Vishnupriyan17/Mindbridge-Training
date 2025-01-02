@@ -34,6 +34,6 @@ public class Employee {
         System.out.println("The Manager salary is: "+employee.calculateSalary());
 
         Employee employee1 = new Developer(3,10000);
-        System.out.println("The Developer salary is: "+employee1.calculateSalary());
+        System.out.println("The Developer's salary is: "+employee1.calculateSalary());
     }
 }
