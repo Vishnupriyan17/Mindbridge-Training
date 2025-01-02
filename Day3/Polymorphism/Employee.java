@@ -27,7 +27,7 @@ class Manager extends Employee{
 }
 public class Employee {
     public double calculateSalary(){
-        return 10;
+        return 0;
     }
     public static void main(String[] args) {
         Employee employee = new Manager(2,12000);
