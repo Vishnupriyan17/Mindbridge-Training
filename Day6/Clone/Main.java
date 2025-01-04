@@ -1,30 +1,16 @@
 package Day6.Clone;
 
 public class Main implements Cloneable{
-    String nsme;
-    int age;
-    Main(String s,int age){
-        this.nsme=s;
-        this.age=age;
-    }
-    public void display(){
-        System.out.println("name"+nsme);
-        System.out.println("name"+age);
-    }
-
+    String s="vishnu";
     public static void main(String[] args) {
-        try{
-            Main main = new Main("vishnu",20);
-//            Main main2 = new Main();
-            Main main1 = (Main)main.clone();
-            System.out.println(main.hashCode());
-//            System.out.println(main2 .hashCode());
-            System.out.println(main1.hashCode());
-            main.display();
-            main1.display();
-        }
-        catch (Exception e)
+        try
         {
+            Main main1 = new Main();  //new object
+            Main main2 = (Main)main1.clone();  //cloned object
+            System.out.println(main1.hashCode()+" "+main1.s.equals(main2.s)+" "+main2.hashCode());
+            System.out.println(main1.hashCode()+" "+(main1 == main2)+" "+main2.hashCode());
+        }
+        catch(Exception e){
 
         }
     }
