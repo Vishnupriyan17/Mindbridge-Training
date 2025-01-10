@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class EmailValidation {
     public static void main(String[] args) {
-        String text = "vishnukodees123!gmail.com";
+        String text = "v@gmail.com";
         if(validateEmail(text))
         {
             System.out.println(text+" Valid");
