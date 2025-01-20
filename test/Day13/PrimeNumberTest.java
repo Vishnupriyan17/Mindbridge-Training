@@ -1,3 +1,4 @@
+
 package Day13;
 
 import org.junit.jupiter.api.Test;
@@ -24,4 +25,5 @@ class PrimeNumberTest {
     {
         assertEquals("Not a PrimeNumber",PrimeNumber.isPrime(-4));
     }
+
 }
