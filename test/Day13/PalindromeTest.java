@@ -1,4 +1,3 @@
-
 package Day13;
 
 import org.junit.Test;
@@ -36,6 +35,5 @@ public class PalindromeTest{
         String result = Palindrome.checkPalindrome(null);
         assertEquals("Input is null", result);
     }
-
 
 }
