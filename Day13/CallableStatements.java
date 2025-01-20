@@ -9,7 +9,7 @@ public class CallableStatements {
         CallableStatement cstat = null;
         ResultSet rs = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/Mindbridges", "root", "Vishnu@2003");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/Mindbridges", "root", "Vishnu@123");
             cstat = connection.prepareCall("{call oneprocedure(?,?,?)}");
             cstat.setDouble(1, 21);
             cstat.setDouble(3, 88.7);

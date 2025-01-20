@@ -13,7 +13,7 @@ public class PreparedStatements {
         ResultSet rs = null;
         try{
             connection = DriverManager.getConnection("jdbc:mysql://localhost/Mindbridges", "root", "Vishnu@2003");
-            pstat = connection.prepareStatement("select StudentName from Student where Marks >= ?");
+            pstat = connection.prepareStatement("select StudentName from Student where Mark >= ?");
             pstat.setDouble(1,95);
             rs = pstat.executeQuery();
             while (rs.next())
