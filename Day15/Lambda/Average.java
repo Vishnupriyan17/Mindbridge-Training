@@ -6,25 +6,22 @@ import java.util.List;
 
 public class Average {
 
-    public Average() {
-        List<Student> stu = new ArrayList<>();
-        Student stu1 = new Student(1, "Vishnu", 8.32,"IT");
-        Student stu2 = new Student(2, "Priyan", 8.01,"CSE");
-        Student stu3 = new Student(3, "Shan", 7.67,"CSE");
-        Student stu4 = new Student(4, "Pavi", 9.90,"IT");
-        Student stu5 = new Student(5, "Gogul", 6.32,"EEE");
-        Student stu6 = new Student(6, "Praveen", 7.32,"IT");
-        stu.add(stu1);
-        stu.add(stu2);
-        stu.add(stu3);
-        stu.add(stu4);
-        stu.add(stu5);
-        stu.add(stu6);
+        public static double calculateAverageGPA(List<Double> gpas) {
+            double[] sum = {0};
+            int[] count = {0};
 
+            gpas.forEach(gpa -> {
+                sum[0] += gpa;
+                count[0]++;
+            });
+
+            return count[0] > 0 ? sum[0] / count[0] : 0;
+        }
+
+        public static void main(String[] args) {
+            List<Double> studentGPAs = List.of(3.5, 3.8, 4.0, 2.9);
+            double averageGPA = calculateAverageGPA(studentGPAs);
+            System.out.println("Average GPA: " + averageGPA);
+        }
     }
 
-    public static void main(String[] args) {
-        Average average = new Average();
-    }
-
-}

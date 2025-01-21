@@ -23,7 +23,7 @@ public class StudentMain {
 
         System.out.println(stu);
 
-        Collections.sort(stu,(student1,student2) -> Double.compare(student1.getCgpa(),student2.getCgpa()));
+        Collections.sort(stu,(student1,student2) -> Double.compare(student2.getCgpa(),student1.getCgpa()));
         System.out.println(stu);
     }
 
