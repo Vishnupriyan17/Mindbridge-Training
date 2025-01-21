@@ -11,6 +11,6 @@ public class StudentName {
         public static void main(String[] args) {
             List<String> studentNames = List.of("Alice", "Bob", "Charlie");
             List<String> transformedNames = transformStudentNames(studentNames);
-            transformedNames.forEach(System.out::println);
+            System.out.println(transformedNames.toString());
         }
     }

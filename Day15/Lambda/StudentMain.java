@@ -2,6 +2,7 @@ package Day15.Lambda;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class StudentMain {
@@ -24,6 +25,20 @@ public class StudentMain {
         System.out.println(stu);
 
         Collections.sort(stu,(student1,student2) -> Double.compare(student2.getCgpa(),student1.getCgpa()));
+//        System.out.println(stu);
+
+//        Collections.sort(stu, new Comparator<Student>() {
+//            @Override
+//            public int compare(Student o1, Student o2) {
+//                if(o1.getCgpa()>o2.getCgpa()){
+//                    return -1;
+//                }
+//                if(o1.getCgpa()<o2.getCgpa()){
+//                    return 1;
+//                }
+//                return 0;
+//            }
+//        });
         System.out.println(stu);
     }
 
