@@ -1,42 +1,92 @@
 Student Management System
 
-Overview
+This is a simple Student Management System built using Java. It allows you to manage student records with the ability to add, update, delete, and view students. The system calculates the grade automatically based on the student's marks. Data is stored in a CSV file and read using multithreading for efficient performance.
 
-The Student Management System is a console-based Java application that allows teachers to manage student records efficiently. It provides functionalities to create, update, display, search, and delete student records, storing data persistently in a CSV file.
+Features:
 
-Features
+Add, update, delete, and view student records.
 
-Add Student: Allows teachers to enter student details, including ID, name, age, email, and grades.
+Automatically calculate grades based on marks.
 
-Update Student: Modify student details such as name, age, email, and grades.
+Data stored in a CSV file (students.csv).
 
-Display Student: View the list of all students.
+Multithreaded saving process for efficiency.
 
-Search by ID: Find a student using their unique ID.
+Simple and interactive console interface.
 
-Delete Student: Remove a student record from the system.
+Class Breakdown:
 
-File Storage: Saves and loads student data from students.csv.
+1. Student
 
-Multithreading: Uses an ExecutorService for handling file operations asynchronously.
+The Student class represents a student with the following attributes:
 
-Files and Description
+studentId (int): The unique identifier for the student.
 
-Main.java: The entry point of the application. Provides a menu-driven interface to interact with the system.
+studentName (String): The name of the student.
 
-Student.java: A model class representing a student with attributes such as ID, name, age, email, and grade.
+studentAge (int): The age of the student.
 
-Teacher.java: Manages student records, handling CRUD operations and file I/O.
+email (String): The email address of the student.
 
-Data Storage
+grade (char): The grade calculated based on the student's marks.
 
-Student records are stored in students.csv in the format:
+Methods:
 
-Id,Name,Age,Email-Id,Grade
-101,John Doe,20,john@example.com,A
-Role-based authentication.
+getStudentId(), setStudentId(int studentId): Get and set student ID.
 
-License
+getStudentName(), setStudentName(String studentName): Get and set student name.
 
-This project is open-source and free to use under the MIT License.
+getStudentAge(), setStudentAge(int studentAge): Get and set student age.
+
+getEmail(), setEmail(String email): Get and set student email.
+
+getGrade(), setGrade(char grade): Get and set student grade.
+
+toString(): Converts the student data into a CSV string format for easy storage.
+
+2. Teacher
+
+The Teacher class manages student records and handles CRUD operations and file I/O.
+
+Methods:
+
+createStudent(): Adds a new student with calculated grade based on marks.
+
+updateStudent(): Updates student details such as name, age, email, or marks.
+
+displayStudent(): Displays all students in the system.
+
+searchId(): Searches for a student by their ID.
+
+deleteStudent(): Deletes a student record from the system.
+
+saveStudent(): Saves student data to the CSV file using multithreading.
+
+loadStudent(): Loads student data from the CSV file.
+
+regexCheck(String email): Validates email format using regex.
+
+3. Main
+
+The Main class is the entry point for the application. It provides an interactive console interface for the user to manage student records.
+
+Features:
+
+A simple text-based menu to choose operations such as:
+
+Add a new student.
+
+View all students.
+
+Search for a student by ID.
+
+Update student details.
+
+Delete a student.
+
+Uses the Teacher class to perform operations.
+
+Below is the Demo code Video:
+
+
 
