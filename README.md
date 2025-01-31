@@ -28,10 +28,15 @@ Student.java: A model class representing a student with attributes such as ID, n
 
 Teacher.java: Manages student records, handling CRUD operations and file I/O.
 
-
 Data Storage
 
 Student records are stored in students.csv in the format:
 
 Id,Name,Age,Email-Id,Grade
 101,John Doe,20,john@example.com,A
+Role-based authentication.
+
+License
+
+This project is open-source and free to use under the MIT License.
+
