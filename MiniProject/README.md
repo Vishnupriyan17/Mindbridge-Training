@@ -1,87 +1,58 @@
-Student Management System
+# Student Management System
 
-This is a simple Student Management System built using Java. It allows you to manage student records with the ability to add, update, delete, and view students. The system calculates the grade automatically based on the student's marks. Data is stored in a CSV file and read using multithreading for efficient performance.
+This is a simple Student Management System built using Java 8 features. The system allows you to:  
+- Add new students.  
+- View existing students.  
+- Update student details.  
+- Delete students.  
+- Search for students by ID.  
+- Store and retrieve student data from a CSV file.  
+- Automatically calculate grades based on marks.  
 
-Features:
+## Features  
+-Add, update, delete, and view students.  
+-Search students by ID.  
+-Automatically calculate grades based on marks.  
+-File-based storage (CSV) for persistence.  
+-Data loading and saving handled using multithreading for efficiency.  
+-Input validation for email format and student details.  
 
-Add, update, delete, and view student records.
+## Technologies Used  
+- Java 8  
+- Collections (HashMap)  
+- Java I/O (File handling)  
+- Regular Expressions (Email validation)  
+- Multithreading (ExecutorService)  
 
-Automatically calculate grades based on marks.
+## Class Overview  
 
-Data stored in a CSV file (students.csv).
+### Student  
+- Represents a student with attributes like *ID, Name, Email, Marks, and Grade*.  
+- Provides a method to calculate the *grade based on marks*.  
 
-Multithreaded saving process for efficiency.
+### StudentManager  
+- Handles all CRUD operations (*Add, View, Update, Delete, Search*) for students.  
+- Uses a *HashMap* to store student data in memory.  
+- Ensures *data consistency* by synchronizing operations.  
 
-Simple and interactive console interface.
+### FileHandler  
+- Responsible for reading and writing student data to a *CSV file*.  
+- Uses *multithreading* to perform file operations efficiently.  
 
-Class Breakdown:
+### Validator  
+- Contains methods to *validate student details* like email format.  
+- Ensures only valid input is accepted.  
 
-1. Student
+### Main  
+- The entry point of the application.  
+- Displays a *console-based menu* for user interaction.  
+- Calls StudentManager methods based on user input.   
 
-The Student class represents a student with the following attributes:
-
-studentId (int): The unique identifier for the student.
-
-studentName (String): The name of the student.
-
-studentAge (int): The age of the student.
-
-email (String): The email address of the student.
-
-grade (char): The grade calculated based on the student's marks.
-
-Methods:
-
-getStudentId(), setStudentId(int studentId): Get and set student ID.
-
-getStudentName(), setStudentName(String studentName): Get and set student name.
-
-getStudentAge(), setStudentAge(int studentAge): Get and set student age.
-
-getEmail(), setEmail(String email): Get and set student email.
-
-getGrade(), setGrade(char grade): Get and set student grade.
-
-toString(): Converts the student data into a CSV string format for easy storage.
-
-2. Teacher
-
-The Teacher class manages student records and handles CRUD operations and file I/O.
-
-Methods:
-
-createStudent(): Adds a new student with calculated grade based on marks.
-
-updateStudent(): Updates student details such as name, age, email, or marks.
-
-displayStudent(): Displays all students in the system.
-
-searchId(): Searches for a student by their ID.
-
-deleteStudent(): Deletes a student record from the system.
-
-saveStudent(): Saves student data to the CSV file using multithreading.
-
-loadStudent(): Loads student data from the CSV file.
-
-regexCheck(String email): Validates email format using regex.
-
-3. Main
-
-The Main class is the entry point for the application. It provides an interactive console interface for the user to manage student records.
-
-Features:
-
-A simple text-based menu to choose operations such as:
-
-Add a new student.
-
-View all students.
-
-Search for a student by ID.
-
-Update student details.
-
-Delete a student.
-
-Uses the Teacher class to perform operations.
+## Grade Calculation  
+Grades are assigned based on the student's average marks:  
+- *O* → 90-100  
+- *A* → 80-89  
+- *B* → 70-79  
+- *C* → 60-69  
+- *D* → 50-59  
+- *E* → Below 50  
