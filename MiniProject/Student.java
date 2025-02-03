@@ -63,9 +63,9 @@ public class Student {
     public String toString() {
         return
                 studentId +
-                ","+ studentName + '\'' +
+                ","+ studentName + '\n' +
                 "," + studentAge +
                 "," + grade +
-                "," + email + '\'';
+                "," + email + '\n';
     }
 }

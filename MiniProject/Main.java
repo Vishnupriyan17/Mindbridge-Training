@@ -33,7 +33,7 @@ public class Main {
                 continue;
             }
 
-            switch (choice) {
+            switch (choice){
                 case 1:
                     teacher.createStudent();
                     teacher.saveStudent();

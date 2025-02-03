@@ -88,6 +88,8 @@ public class Teacher {
             studentList.put(studentId, student);
             System.out.println(student);
     }
+
+
     //update the student
     public void updateStudent() {
             int choice = 0;
@@ -184,13 +186,14 @@ public class Teacher {
             }
     }
 
-
+    //display all the student
     public void displayStudent() {
             System.out.println("\n------------ Student Details ------------");
             studentList.forEach((id, stu) -> System.out.println(stu));
             System.out.println("\n-----------------------------------------");
     }
 
+    //search student using their id
     public void searchId() {
             System.out.println("\nEnter a Student-Id to search:");
             int newId = sc.nextInt();
@@ -231,7 +234,7 @@ public class Teacher {
     }
 
 
-
+//delete student from csv
     public void deleteStudent()
     {
         if (studentList.isEmpty()) {
@@ -244,7 +247,7 @@ public class Teacher {
             System.out.println("-------------------------Deleted successfully------------------------");
     }
 
-
+    //loading map to csv
     public void saveStudent() {
         if (studentList.isEmpty()) {
             System.out.println("\nYour File is empty, add student data");
@@ -278,8 +281,7 @@ public class Teacher {
         };
         executor.submit(saveStudentThread);
     }
-
-
+    //loading data from csv to map
     public void loadStudent() {
         Runnable loadStudentThread = () -> {
             if (!file.exists()) {
