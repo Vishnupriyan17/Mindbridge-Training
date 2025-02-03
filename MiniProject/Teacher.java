@@ -1,11 +1,14 @@
 package MiniProject;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 public class Teacher {
 
@@ -194,47 +197,35 @@ public class Teacher {
     }
 
     //search student using their id
-    public void searchId() {
+        public static void searchId() {
             System.out.println("\nEnter a Student-Id to search:");
             int newId = sc.nextInt();
 
-            boolean found = false;
+            try (Stream<String> lines = Files.lines(Paths.get(FILE_NAME))) {
+                Optional<String> result = lines
+                        .skip(1) // Skip header row
+                        .map(line -> line.split(",")) // Convert line to array
+                        .filter(data -> Integer.parseInt(data[0]) == newId) // Filter by ID
+                        .map(data -> "\nStudent Details Found:\n" +
+                                "ID: " + data[0] + "\n" +
+                                "Name: " + data[1] + "\n" +
+                                "Age: " + data[2] + "\n" +
+                                "Email: " + data[3] + "\n" +
+                                "Grade: " + data[4])
+                        .findFirst();
 
-            try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
-                String line;
-                boolean firstLine = true;
+                result.ifPresentOrElse(
+                        System.out::println,
+                        () -> System.out.println("\nThe ID " + newId + " is not present in the CSV file.")
+                );
 
-                while ((line = reader.readLine()) != null) {
-                    if (firstLine) { // Skip header row
-                        firstLine = false;
-                        continue;
-                    }
-
-                    String[] data = line.split(",");
-                    int studentId = Integer.parseInt(data[0]); // Get student ID from CSV
-
-                    if (studentId == newId) {
-                        found = true;
-                        System.out.println("\nStudent Details Found:");
-                        System.out.println("ID: " + data[0]);
-                        System.out.println("Name: " + data[1]);
-                        System.out.println("Age: " + data[2]);
-                        System.out.println("Email: " + data[3]);
-                        System.out.println("Grade: " + data[4]);
-                        break; // Stop searching once found
-                    }
-                }
-
-                if (!found) {
-                    System.out.println("\nThe ID " + newId + " is not present in the CSV file.");
-                }
             } catch (IOException e) {
                 System.out.println("\nError reading the file: " + e.getMessage());
             }
-    }
+        }
 
 
-//delete student from csv
+    //delete student from csv
     public void deleteStudent()
     {
         if (studentList.isEmpty()) {
